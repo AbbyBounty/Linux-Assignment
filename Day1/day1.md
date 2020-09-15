@@ -1,3 +1,9 @@
+# DAY 1
+
+```c
+PRN : 200243020003
+```
+
 #### 1. Create files File1 , File2, File3 using touch command.
 ```sh
 $touch File1 File2 File3
@@ -14,7 +20,7 @@ $cat > countries
 ```
 #### 3. Try ls command and check for the files you created.
 ```sh
-$ls
+ls
 ```
 
 #### 4. Try ls -l command and study it in details.
