@@ -1,4 +1,4 @@
-# DAY 4
+# DAY 5
 
 ```c
 PRN: 200243020003
@@ -26,6 +26,30 @@ date
 ```
 #### 11. Write an interactive shell utility for copying file/directory for user utility will accept source file/directory and destination directory from user, it will check if user entered directory for destination exists and it is directory, if not print valid error message. Then utility will check if user entered file as source then copy the file to destination directory or user entered directory as source then copy the entire directory to destinatin directory.
 ```sh
+echo “enter source file”;
+read file1;
+echo “enter destination file”;
+read file2;
+
+If [ -f $file1 ]
+then 
+     if [ -f $file2 ]
+      then 
+         Cp $file1 $file2
+       else
+           Echo “invalid destination file”;
+        fi 
+else
+echo “invalid source file”;
+fi
+
+if [ -d $file1 ]
+then 
+      if [ -d $file2 ]
+      then 
+         Cp $file1 $file2
+        fi 
+fi 
 
 ```
 #### 12. Using mv command rename the file from current directory.

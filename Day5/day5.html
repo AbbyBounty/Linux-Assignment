@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day5.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" href="/Linux-Assignment/css/styles.css">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+
+<div class="header">
+	<div class="line">
+		<ul class="ul">
+			<li  class="red li"></li>
+			<li  class="yellow li"></li>
+			<li  class="green li"></li>
+		</ul>
+	</div>
+
+	<div class="sql">Last login: Mon Sep 14 22:25:14 on ttys002
+		<br>
+		abby@Bounty's-MacBook-Pro ~ %  <span class="span">cd /user/home/Linux-Assignment/ </span> <span class="day"> day-5 </span>;
+			<br>
+			<a class="nav-li"  href="/Linux-Assignment/Day1/day1.html">DAY 1</a>
+			<a class="nav-li"  href="/Linux-Assignment/Day2/day2.html">DAY 2</a>
+			<a class="nav-li" href="/Linux-Assignment/Day3/day3.html">DAY 3</a>
+			<a class="nav-li"  href="/Linux-Assignment/Day4/day4.html">DAY 4</a>
+			<a class="nav-li"  href="/Linux-Assignment/Day5/day5.html">DAY 5</a>
+
+
+	</div>
+
+   
+</div>
+
+
+<h1 id="day-5">DAY 5</h1>
+<pre class="hljs"><code><div>PRN: <span class="hljs-number">200243020003</span>
+</div></code></pre>
+<h4 id="7-create-an-archive-of-directory-using-zip-and-extract-it-using-unzip">7. Create an archive of directory using zip and extract it using unzip</h4>
+<pre class="hljs"><code><div>zip -r shellscripting.zip shellscripting
+
+unzip -l shellscripting.zip 
+</div></code></pre>
+<h4 id="8-create-an-archive-of-directory-using-tar-and-extract-it-using-tar-command">8. Create an archive of directory using tar and extract it using tar command.</h4>
+<pre class="hljs"><code><div>tar -cf shellscripting.tar shellscripting
+
+tar -xf shellscripting.tar 
+</div></code></pre>
+<h4 id="9-print-current-months-calendar-on-terminal">9. Print current months calendar on terminal</h4>
+<pre class="hljs"><code><div>cal  9 2020 
+</div></code></pre>
+<h4 id="10-print-current-date-on-terminal">10. Print current date on terminal</h4>
+<pre class="hljs"><code><div>date 
+</div></code></pre>
+<h4 id="11-write-an-interactive-shell-utility-for-copying-filedirectory-for-user-utility-will-accept-source-filedirectory-and-destination-directory-from-user-it-will-check-if-user-entered-directory-for-destination-exists-and-it-is-directory-if-not-print-valid-error-message-then-utility-will-check-if-user-entered-file-as-source-then-copy-the-file-to-destination-directory-or-user-entered-directory-as-source-then-copy-the-entire-directory-to-destinatin-directory">11. Write an interactive shell utility for copying file/directory for user utility will accept source file/directory and destination directory from user, it will check if user entered directory for destination exists and it is directory, if not print valid error message. Then utility will check if user entered file as source then copy the file to destination directory or user entered directory as source then copy the entire directory to destinatin directory.</h4>
+<pre class="hljs"><code><div><span class="hljs-built_in">echo</span> “enter <span class="hljs-built_in">source</span> file”;
+<span class="hljs-built_in">read</span> file1;
+<span class="hljs-built_in">echo</span> “enter destination file”;
+<span class="hljs-built_in">read</span> file2;
+
+If [ -f <span class="hljs-variable">$file1</span> ]
+<span class="hljs-keyword">then</span> 
+     <span class="hljs-keyword">if</span> [ -f <span class="hljs-variable">$file2</span> ]
+      <span class="hljs-keyword">then</span> 
+         Cp <span class="hljs-variable">$file1</span> <span class="hljs-variable">$file2</span>
+       <span class="hljs-keyword">else</span>
+           Echo “invalid destination file”;
+        <span class="hljs-keyword">fi</span> 
+<span class="hljs-keyword">else</span>
+<span class="hljs-built_in">echo</span> “invalid <span class="hljs-built_in">source</span> file”;
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-keyword">if</span> [ -d <span class="hljs-variable">$file1</span> ]
+<span class="hljs-keyword">then</span> 
+      <span class="hljs-keyword">if</span> [ -d <span class="hljs-variable">$file2</span> ]
+      <span class="hljs-keyword">then</span> 
+         Cp <span class="hljs-variable">$file1</span> <span class="hljs-variable">$file2</span>
+        <span class="hljs-keyword">fi</span> 
+<span class="hljs-keyword">fi</span> 
+
+</div></code></pre>
+<h4 id="12-using-mv-command-rename-the-file-from-current-directory">12. Using mv command rename the file from current directory.</h4>
+<pre class="hljs"><code><div>mv olddir newdir
+</div></code></pre>
+<h4 id="13-write-a-shell-utility-to-print-all-the-files-from-current-direcotry-which-contains-%22for%22-word-as-content-in-it-hint-use-find-with-grep-command">13. Write a shell utility to print all the files from current direcotry which contains &quot;for&quot; word as content in it. Hint use find with grep command.</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">for</span> <span class="hljs-variable">$var</span> <span class="hljs-keyword">in</span> $(find .)
+<span class="hljs-keyword">do</span> 
+    grep -vn <span class="hljs-string">"for"</span> <span class="hljs-variable">$var</span>
+    ls 
+<span class="hljs-keyword">done</span> 
+
+</div></code></pre>
+<h4 id="14-print-from-line-number-3-7-from-given-file-hint-use-head-with-tail-command">14. Print from line number 3-7 from given file. Hint use head with tail command</h4>
+<pre class="hljs"><code><div>tail -n  +3 file.txt | head -n +5
+
+</div></code></pre>
+<h4 id="15-create-a-hard-link-and-symbolic-link-for-any-file-from-current-directory">15. Create a hard link and symbolic link for any file from current directory</h4>
+<pre class="hljs"><code><div>ln first.txt first_link
+
+ls -il first*
+</div></code></pre>
+<h4 id="16-create-a-file-using-gedit-name-it-as-fruitstxt-add-following-lines-to-it-apple-mango-apple-banana-orange-mango-strawberry-banana-apple-a-print-only-unique-lines-from-file-b-count-how-many-times-each-word-getting-repeated-in-file-hint-use-uniq-command">16. Create a file using gedit name it as fruits.txt. Add following lines to it. apple mango apple banana orange mango strawberry banana apple a. print only unique lines from file b. count how many times each word getting repeated in file Hint use uniq command</h4>
+<pre class="hljs"><code><div>vim fruits.txt
+
+uniq -u file.txt | sort 
+
+
+uniq -u file.txt | sort | wc
+
+</div></code></pre>
+
+</body>
+</html>
